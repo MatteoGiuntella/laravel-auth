@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Controller\ProjectController;
 use App\Models\Project;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class ProjectSeeder extends Seeder
             $project = new Project();
             $project->url = fake()->url();
             $project->title= fake()->domainName();
+            $project->slug = Str::slug($project->title);
             $project->date = fake()->dateTime();
             $project->description = fake()->paragraph();
             $project->save();

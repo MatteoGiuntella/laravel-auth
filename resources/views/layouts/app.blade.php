@@ -24,10 +24,10 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link 2</a>
+                                <a class="nav-link" href="{{ route('admin.projects.index') }}">Homepage</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link 3</a>
+                                <a class="nav-link" href="{{ route('admin.projects.create') }}">Add Project</a>
                             </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">
