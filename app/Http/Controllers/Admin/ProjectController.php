@@ -20,13 +20,13 @@ class ProjectController extends Controller
     {
         $projects = Project::all();
         
-        return view('admin.project.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
-    public function show(string $slug)
+    public function show(String $slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
 
-        return view('admin.project.show', compact('projects'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.project.create');
+        return view('admin.projects.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProjectController extends Controller
 
         $project = Project::create($validatedData);
 
-        return redirect()->route('admin.project.show', ['projects' => $project->id]);
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
@@ -59,7 +59,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
 
-        return view('admin.project.update', compact('projects'));
+        return view('admin.projects.update', compact('project'));
     
     }
 
@@ -72,7 +72,7 @@ class ProjectController extends Controller
 
         $project->update($projectData);
 
-        return redirect()->route('admin.project.show', ['projects' => $project->id]);
+        return redirect()->route('admin.projects.show', ['project' => $project->id]);
     }
 
     /**
@@ -82,6 +82,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return redirect()->route('admin.project.index');
+        return redirect()->route('admin.projects.index');
     }
 }

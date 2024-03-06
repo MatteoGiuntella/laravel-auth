@@ -17,12 +17,12 @@
     @endif
 
 
-    <form action="{{ route('projects.store') }}" method="POST">
+    <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
 
         <div class="mb-3">
             <label  for="title" class="form-label " >add title</label>
-            <input value="{{ old('title') }}" class="form-control @error('title') is-invalid @enderror" type="file" id="formFile" name="title" maxlength="64">
+            <input value="{{ old('title') }}" class="form-control @error('title') is-invalid @enderror" type="text" id="title" name="title" maxlength="64">
             @error('title')
                 <div class="alert alert-danger">
                     {{ $message }}
